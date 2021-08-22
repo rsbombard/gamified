@@ -1,0 +1,51 @@
+{
+    "name": "rsbombard/gamified",
+    "description": "Gamification with quests, XP (points), badges and awards.",
+    "homepage": "https://github.com/rsbombard/gamified",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
+    "authors": [
+        {
+            "name": "N/A",
+            "email": "rsbombard@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "~3.8|^4.0",
+        "mockery/mockery": "^0.9.4 || ~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ansezz\\Gamify\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ansezz\\Gamify\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ansezz\\Gamify\\GamifyServiceProvider"
+            ],
+            "aliases": {
+                "Gamify": "Ansezz\\Gamify\\Facades\\GamifyFacade"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
