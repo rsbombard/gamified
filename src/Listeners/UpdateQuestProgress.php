@@ -5,8 +5,9 @@ namespace Bomb\Gamify\Listeners;
 use Bomb\Gamify\Events\QuestProgress;
 use Bomb\Gamify\Quest;
 use Bomb\Gamify\UserQuest;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UpdateQuestProgress
+class UpdateQuestProgress implements ShouldQueue
 {
     /**
      * Handle the event.
