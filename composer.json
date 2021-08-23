@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ansezz\\Gamify\\": "src/"
+            "Bomb\\Gamify\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Ansezz\\Gamify\\Tests\\": "tests/"
+            "Bomb\\Gamify\\Tests\\": "tests/"
         }
     },
     "extra": {
