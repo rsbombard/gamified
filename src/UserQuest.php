@@ -19,6 +19,7 @@ class UserQuest extends Model
      */
     public function recordProgress(Quest $quest, $progressIncrement = 1) {
         $this->progress += $progressIncrement;
+        $this->progress = min($quest->actions_required, $this->progress);
 
         /* Quest completed! */
         if ($this->progress >= $quest->actions_required
