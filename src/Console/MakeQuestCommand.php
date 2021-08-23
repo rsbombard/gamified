@@ -5,9 +5,9 @@ namespace Bomb\Gamify\Console;
 use Bomb\Gamify\GamifyGroup;
 use Bomb\Gamify\Point;
 use Bomb\Gamify\Quest;
-use Illuminate\Console\GeneratorCommand;
+use Symfony\Component\Console\Command\Command;
 
-class MakeQuestCommand
+class MakeQuestCommand extends Command
 {
     /**
      * The name and signature of the console command.
