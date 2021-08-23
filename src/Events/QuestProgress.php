@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class QuestProgress implements ShouldBroadcast
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
 
     /**
      * @var \App\User;

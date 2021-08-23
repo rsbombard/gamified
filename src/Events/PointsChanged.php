@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class PointsChanged implements ShouldBroadcast
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
 
     /**
      * @var Model

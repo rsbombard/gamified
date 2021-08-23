@@ -13,7 +13,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class QuestComplete implements ShouldBroadcast
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
 
     /**
      * @var UserQuest;

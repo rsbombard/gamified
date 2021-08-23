@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class BadgeAchieved implements ShouldBroadcast
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable;
 
     /**
      * @var Model
