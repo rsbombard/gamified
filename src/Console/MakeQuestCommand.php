@@ -3,7 +3,7 @@
 namespace Bomb\Gamify\Console;
 
 use Bomb\Gamify\GamifyGroup;
-use Bomb\Gamify\Point;
+use Bomb\Gamify\Xp;
 use Bomb\Gamify\Quest;
 use Illuminate\Console\Command;
 

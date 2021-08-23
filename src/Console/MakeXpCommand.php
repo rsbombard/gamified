@@ -3,31 +3,31 @@
 namespace Bomb\Gamify\Console;
 
 use Bomb\Gamify\GamifyGroup;
-use Bomb\Gamify\Point;
+use Bomb\Gamify\Xp;
 use Illuminate\Console\GeneratorCommand;
 
-class MakePointCommand extends GeneratorCommand
+class MakeXpCommand extends GeneratorCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'gamify:point {name}';
+    protected $signature = 'gamify:xp {name}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a Gamify point type class.';
+    protected $description = 'Create a Gamify xp type class.';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Point';
+    protected $type = 'Xp';
 
     /**
      * Get the stub file for the generator.
@@ -36,7 +36,7 @@ class MakePointCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/point.stub';
+        return __DIR__ . '/stubs/xp.stub';
     }
 
     /**
@@ -48,7 +48,7 @@ class MakePointCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Gamify\Points';
+        return $rootNamespace . '\Gamify\Xp';
     }
 
 
@@ -62,23 +62,23 @@ class MakePointCommand extends GeneratorCommand
     {
         if ($this->confirm('Do you wanna create database record ?')) {
 
-            $name = $this->ask('Point name?');
-            $description = $this->ask('Point description?');
-            $group = $this->ask('Point Group?');
-            $point = $this->ask('Point value?');
+            $name = $this->ask('Xp name?');
+            $description = $this->ask('Xp description?');
+            $group = $this->ask('Xp Group?');
+            $xp = $this->ask('Xp value?');
             $allow_duplicate = false;
 
             if ($this->confirm('Allow duplicate ?')) {
                 $allow_duplicate = true;
             }
 
-            $group = GamifyGroup::firstOrCreate(['name' => $group, 'type' => 'point']);
+            $group = GamifyGroup::firstOrCreate(['name' => $group, 'type' => 'xp']);
 
-            Point::create([
+            Xp::create([
                 'name'            => $name,
                 'description'     => $description,
                 'allow_duplicate' => $allow_duplicate,
-                'point'           => $point,
+                'xp'           => $xp,
                 'gamify_group_id' => $group->id,
                 'class'           => $this->qualifyClass($this->argument('name')),
             ]);

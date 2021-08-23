@@ -1,0 +1,22 @@
+<?php
+
+namespace DummyNamespace;
+
+use Bomb\Gamify\BaseXp;
+
+class DummyClass extends BaseXp
+{
+
+    /**
+     * check if user achieve the xp
+     * @param $xp
+     * @param $subject
+     *
+     * @return bool
+     */
+    public function __invoke($xp, $subject)
+    {
+        return true;
+    }
+
+}

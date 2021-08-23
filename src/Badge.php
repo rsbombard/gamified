@@ -25,7 +25,7 @@ class Badge extends Model
 
 
     /**
-     * Point Gamify Group
+     * Xp Gamify Group
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

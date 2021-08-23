@@ -2,7 +2,7 @@
 
 return [
     // Reputation model
-    'point_model'                  => '\Bomb\Gamify\Point',
+    'xp_model'                  => '\Bomb\Gamify\Xp',
 
     // Broadcast on private channel
     'broadcast_on_private_channel' => true,
@@ -34,6 +34,6 @@ return [
     // Badge achieved vy default if check function not exit
     'badge_is_achieved'            => false,
 
-    // point achieved vy default if check function not exit
-    'point_is_achieved'            => true,
+    // xp achieved vy default if check function not exit
+    'xp_is_achieved'            => true,
 ];

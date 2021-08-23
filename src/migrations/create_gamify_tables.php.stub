@@ -13,12 +13,12 @@ class CreateGamifyTables extends Migration
      */
     public function up()
     {
-        // Points Table
-        Schema::create('points', function (Blueprint $table) {
+        // Xp Table
+        Schema::create('xp', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->double('point');
+            $table->double('xp');
             $table->string('class')->nullable();
             $table->boolean('allow_duplicate')->default(false);
             $table->unsignedBigInteger('gamify_group_id');
@@ -88,16 +88,16 @@ class CreateGamifyTables extends Migration
         Schema::create('gamify_groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('type', ['badge', 'point']);
+            $table->enum('type', ['badge', 'xp']);
             $table->timestamps();
         });
 
-        // Pointables  table
-        Schema::create('pointables', function (Blueprint $table) {
+        // Xpables  table
+        Schema::create('xpables', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('point_id');
-            $table->morphs('pointable');
-            $table->double('achieved_points')->default(0);
+            $table->unsignedBigInteger('xp_id');
+            $table->morphs('xpable');
+            $table->double('achieved_xp')->default(0);
             $table->timestamps();
         });
 
@@ -119,8 +119,8 @@ class CreateGamifyTables extends Migration
     {
         Schema::dropIfExists('badges');
         Schema::dropIfExists('gamify_groups');
-        Schema::dropIfExists('points');
-        Schema::dropIfExists('pointables');
+        Schema::dropIfExists('xp');
+        Schema::dropIfExists('xpables');
         Schema::dropIfExists('badgables');
     }
 }

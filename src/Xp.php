@@ -4,12 +4,12 @@ namespace Bomb\Gamify;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Point extends Model
+class Xp extends Model
 {
     protected $guarded = [];
 
     /**
-     * Point Gamify Group
+     * Xp Gamify Group
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function gamifyGroup()
@@ -23,7 +23,7 @@ class Point extends Model
             return ((new $this->class)($this, $subject));
         }
 
-        return config('gamify.point_is_achieved');
+        return config('gamify.xp_is_achieved');
     }
 
     /**
@@ -31,15 +31,15 @@ class Point extends Model
      *
      * @return \Illuminate\Config\Repository|mixed
      */
-    public function getPoints($subject)
+    public function getXp($subject)
     {
         if (class_exists($this->class)) {
             $class = new $this->class;
-            if (method_exists($class, 'getDynamicPoints')) {
-                return $class->getDynamicPoints($this, $subject);
+            if (method_exists($class, 'getDynamicXp')) {
+                return $class->getDynamicXp($this, $subject);
             }
         }
 
-        return $this->point;
+        return $this->xp;
     }
 }

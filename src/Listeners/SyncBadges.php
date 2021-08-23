@@ -2,17 +2,17 @@
 
 namespace Bomb\Gamify\Listeners;
 
-use Bomb\Gamify\Events\PointsChanged;
+use Bomb\Gamify\Events\XpChanged;
 
 class SyncBadges
 {
     /**
      * Handle the event.
      *
-     * @param  PointsChanged  $event
+     * @param  XpChanged  $event
      * @return void
      */
-    public function handle(PointsChanged $event)
+    public function handle(XpChanged $event)
     {
         $event->subject->syncBadges();
     }

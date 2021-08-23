@@ -2,7 +2,7 @@
 
 namespace Bomb\Gamify;
 
-class BasePoint
+class BaseXp
 {
 
 }

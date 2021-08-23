@@ -4,10 +4,10 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\Bomb\Gamify\Point::class, function (Faker $faker) {
+$factory->define(\Bomb\Gamify\Xp::class, function (Faker $faker) {
     return [
         'name'            => $faker->text(50),
-        'point'           => $faker->randomNumber(),
+        'xp'           => $faker->randomNumber(),
         'allow_duplicate' => $faker->boolean,
     ];
 });

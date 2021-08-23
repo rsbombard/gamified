@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Event;
 use Bomb\Gamify\Listeners\SyncBadges;
 use Illuminate\Support\ServiceProvider;
 use Bomb\Gamify\Console\MakeBadgeCommand;
-use Bomb\Gamify\Console\MakePointCommand;
-use Bomb\Gamify\Events\PointsChanged;
+use Bomb\Gamify\Console\MakeXpCommand;
+use Bomb\Gamify\Events\XpChanged;
 
 class GamifyServiceProvider extends ServiceProvider
 {
@@ -43,14 +43,14 @@ class GamifyServiceProvider extends ServiceProvider
         // register commands
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MakePointCommand::class,
+                MakeXpCommand::class,
                 MakeBadgeCommand::class,
                 MakeQuestCommand::class,
             ]);
         }
 
         // register event listener
-        Event::listen(PointsChanged::class, SyncBadges::class, QuestProgress::class);
+        Event::listen(XpChanged::class, SyncBadges::class, QuestProgress::class);
     }
 
     /**

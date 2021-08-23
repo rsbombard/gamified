@@ -9,7 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class PointsChanged implements ShouldBroadcast
+class XpChanged implements ShouldBroadcast
 {
     use Dispatchable;
 
@@ -21,7 +21,7 @@ class PointsChanged implements ShouldBroadcast
     /**
      * @var int
      */
-    public $point;
+    public $xp;
 
     /**
      * @var bool
@@ -32,13 +32,13 @@ class PointsChanged implements ShouldBroadcast
      * Create a new event instance.
      *
      * @param $subject
-     * @param $point integer
+     * @param $xp integer
      * @param $increment
      */
-    public function __construct(Model $subject, int $point, bool $increment)
+    public function __construct(Model $subject, int $xp, bool $increment)
     {
         $this->subject = $subject;
-        $this->point = $point;
+        $this->xp = $xp;
         $this->increment = $increment;
     }
 

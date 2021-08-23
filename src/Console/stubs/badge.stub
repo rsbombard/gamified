@@ -16,7 +16,7 @@ class DummyClass extends BaseBadge
      */
     public function beginner($badge, $subject)
     {
-        return $subject->achieved_points >= 100;
+        return $subject->achieved_xp >= 100;
     }
 
 }
