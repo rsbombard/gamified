@@ -30,7 +30,7 @@ class UserQuest extends Model
             $quest->recordCompletion();
             $this->save();
 
-            QuestComplete::dispatch($this);
+            QuestComplete::dispatch($this->user(), $this, $quest);
             return true;
         }
 
