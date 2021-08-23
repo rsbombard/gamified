@@ -5,7 +5,7 @@ namespace Bomb\Gamify\Console;
 use Bomb\Gamify\GamifyGroup;
 use Bomb\Gamify\Point;
 use Bomb\Gamify\Quest;
-use Symfony\Component\Console\Command\Command;
+use Illuminate\Console\Command;
 
 class MakeQuestCommand extends Command
 {
