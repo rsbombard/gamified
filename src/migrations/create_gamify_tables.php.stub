@@ -55,7 +55,7 @@ class CreateGamifyTables extends Migration
             $table->integer('reward')->nullable();
             $table->timestamp("start_date")->nullable();
             $table->timestamp("end_date")->nullable();
-            $table->unsignedBigInteger('completions')->nullable();
+            $table->unsignedBigInteger('completions')->default(0)->nullable();
             $table->timestamps();
 
             $table->index("start_date");

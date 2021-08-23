@@ -43,7 +43,8 @@ class MakeQuestCommand extends Command
         $progressEvent      = $this->ask("Progress Event Name?");
         $numActionsRequired = $this->ask("Number of Actions Required?");
         $reward             = $this->ask("Reward Payout?");
-        $maxCompletions     = $this->ask("Max Number of Comppletions Per User?");
+        $maxCompletions     = $this->ask("Max Number of Completions Per User?");
+        $endInDays          = $this->ask("End In how many days?");
 
 
         Quest::create([
@@ -58,7 +59,9 @@ class MakeQuestCommand extends Command
             'progress_event'       => $progressEvent,
             'actions_required'     => $numActionsRequired,
             'max_user_completions' => $maxCompletions,
+            'completions'          => 0,
             'start_date'           => \Carbon\Carbon::now()->toDateTimeString(),
+            'end_date'             => \Carbon\Carbon::now()->addDays($endInDays)->toDateTimeString(),
         ]);
 
     }

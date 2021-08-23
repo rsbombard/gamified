@@ -52,9 +52,10 @@ class QuestComplete implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        $channelName = config('gamify.channel_name') . $this->user->id;
+        $channelName = config('gamify.channel_name');
 
         if (config('gamify.broadcast_on_private_channel')) {
+            $channelName = config('gamify.channel_name') . "." . $this->user->id;
             return new PrivateChannel($channelName);
         }
 
