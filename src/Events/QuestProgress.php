@@ -47,7 +47,7 @@ class QuestProgress implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        $channelName = config('gamify.channel_name') . $this->subject->getKey();
+        $channelName = config('gamify.channel_name') . $this->user->id;
 
         if (config('gamify.broadcast_on_private_channel')) {
             return new PrivateChannel($channelName);
