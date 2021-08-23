@@ -50,15 +50,19 @@ class CreateGamifyTables extends Migration
             $table->string('progress_event')->nullable(); //quest event that triggers progress
             $table->string('geos', 500)->default("all")->nullable();
             $table->integer("max_user_completions")->default(0);
-            $table->integer('actions_required')->nullable();
-            $table->integer('min_level')->nullable();
+            $table->integer('actions_required')->default(1)->nullable();
+            $table->integer('min_level')->default(0)->nullable();
             $table->integer('reward')->nullable();
             $table->timestamp("start_date")->nullable();
             $table->timestamp("end_date")->nullable();
             $table->unsignedBigInteger('completions')->nullable();
-            $table->unsignedBigInteger('level')->nullable();
-            $table->unsignedBigInteger('gamify_group_id')->nullable();
             $table->timestamps();
+
+            $table->index("start_date");
+            $table->index("end_date");
+            $table->index("min_level");
+            $table->index("reward");
+            $table->index("completions");
         });
 
         // Quests Table
@@ -73,6 +77,10 @@ class CreateGamifyTables extends Migration
             $table->timestamp("start_date")->nullable();
             $table->timestamp("finish_date")->nullable();
             $table->timestamps();
+
+            $table->index("quest_id");
+            $table->index("user_id");
+            $table->index("status");
         });
 
 
