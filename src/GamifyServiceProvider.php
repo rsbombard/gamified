@@ -2,6 +2,7 @@
 
 namespace Bomb\Gamify;
 
+use Bomb\Gamify\Events\QuestProgress;
 use Bomb\Gamify\Facades\Gamify;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Event;
@@ -47,7 +48,7 @@ class GamifyServiceProvider extends ServiceProvider
         }
 
         // register event listener
-        Event::listen(PointsChanged::class, SyncBadges::class);
+        Event::listen(PointsChanged::class, SyncBadges::class, QuestProgress::class);
     }
 
     /**

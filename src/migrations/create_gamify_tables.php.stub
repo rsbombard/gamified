@@ -37,6 +37,45 @@ class CreateGamifyTables extends Migration
             $table->timestamps();
         });
 
+        // Quests Table
+        Schema::create('quests', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('class')->nullable();
+            $table->string('reward_type')->nullable();
+            $table->string('reward_description')->nullable();
+            $table->string('action_url')->nullable();
+            $table->string('progress_event')->nullable(); //quest event that triggers progress
+            $table->string('geos', 500)->default("all")->nullable();
+            $table->integer("max_user_completions")->default(0);
+            $table->integer('actions_required')->nullable();
+            $table->integer('min_level')->nullable();
+            $table->integer('reward')->nullable();
+            $table->timestamp("start_date")->nullable();
+            $table->timestamp("end_date")->nullable();
+            $table->unsignedBigInteger('completions')->nullable();
+            $table->unsignedBigInteger('level')->nullable();
+            $table->unsignedBigInteger('gamify_group_id')->nullable();
+            $table->timestamps();
+        });
+
+        // Quests Table
+        Schema::create('user_quests', function (Blueprint $table) {
+            $table->id();
+            $table->string('status')->default("in_progress")->nullable();
+            $table->unsignedBigInteger('quest_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('progress')->nullable();
+            $table->integer('percent_progress')->nullable();
+            $table->unsignedBigInteger('num_completions')->nullable();
+            $table->timestamp("start_date")->nullable();
+            $table->timestamp("finish_date")->nullable();
+            $table->timestamps();
+        });
+
+
         // Group table
         Schema::create('gamify_groups', function (Blueprint $table) {
             $table->id();

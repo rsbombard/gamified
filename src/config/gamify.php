@@ -14,10 +14,12 @@ return [
     'badge_model'                  => '\Bomb\Gamify\Badge',
 
     // Where all badges icon stored
-    'badge_icon_folder'            => 'images/badges/',
+    'badge_icon_folder'            => 'img/badges/',
+    'quest_icon_folder'            => 'img/quests/',
 
     // Extention of badge icons
-    'badge_icon_extension'         => '.svg',
+    'badge_icon_extension'         => '.png',
+    'quest_icon_extension'         => '.png',
 
     // All the levels for badge
     'badge_levels'                 => [
