@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * Class Quest
  * @package Bomb\Gamify
- * @property int actions_Required
+ * @property int actions_required
  * @property int completions
  * @property string progress_event
  * @property string max_user_completions

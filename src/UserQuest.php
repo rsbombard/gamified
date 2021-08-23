@@ -21,12 +21,13 @@ class UserQuest extends Model
         $this->progress += $progressIncrement;
 
         /* Quest completed! */
-        if ($this->progress >= $quest->actions_Required
+        if ($this->progress >= $quest->actions_required
             && $this->num_completions < $quest->max_user_completions
         ) {
             $this->status = "complete";
             $this->finish_date = \Carbon\Carbon::now()->toDateTimeString();
             $this->percent_progress = 100;
+            $this->num_completions++;
             $quest->recordCompletion();
             $this->save();
 
