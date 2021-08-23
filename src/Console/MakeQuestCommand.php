@@ -14,7 +14,7 @@ class MakeQuestCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'gamify:qyest {name}';
+    protected $signature = 'gamify:quest';
 
     /**
      * The console command description.
