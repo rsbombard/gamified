@@ -38,10 +38,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ansezz\\Gamify\\GamifyServiceProvider"
+                "Bomb\\Gamify\\GamifyServiceProvider"
             ],
             "aliases": {
-                "Gamify": "Ansezz\\Gamify\\Facades\\GamifyFacade"
+                "Gamify": "Bomb\\Gamify\\Facades\\GamifyFacade"
             }
         }
     },
