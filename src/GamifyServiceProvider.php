@@ -2,6 +2,7 @@
 
 namespace Bomb\Gamify;
 
+use Bomb\Gamify\Console\MakeQuestCommand;
 use Bomb\Gamify\Events\QuestProgress;
 use Bomb\Gamify\Facades\Gamify;
 use Illuminate\Support\Collection;
@@ -44,6 +45,7 @@ class GamifyServiceProvider extends ServiceProvider
             $this->commands([
                 MakePointCommand::class,
                 MakeBadgeCommand::class,
+                MakeQuestCommand::class,
             ]);
         }
 

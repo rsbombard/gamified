@@ -29,7 +29,7 @@ class MakeQuestCommand
      * @var string
      */
     protected $type = 'Quest';
-    
+
     public function handle()
     {
 
