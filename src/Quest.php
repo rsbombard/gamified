@@ -16,7 +16,8 @@ use Illuminate\Support\Str;
 class Quest extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $activeQuest = null;
+    protected $currentActiveQuest = null;
+    protected $appends = ['active_quest', 'image'];
 
     public function recordCompletion() {
         $this->increment("completions");
@@ -31,6 +32,11 @@ class Quest extends Model
         return stristr($this->geos, $country) !== false;
     }
 
+    public function getActiveQuestAttribute()
+    {
+        return $this->currentActiveQuest;
+    }
+
     public function getImageAttribute($value)
     {
         if (!empty($value)) {
@@ -42,7 +48,7 @@ class Quest extends Model
 
     public function loadQuestProgress($userId,\Illuminate\Support\Collection $activeQuests) {
 
-        $this->activeQuest = $activeQuests
+        $this->currentActiveQuest = $activeQuests
             ->where("user_id", $userId)
             ->where("quest_id", $this->id)
             ->first();
