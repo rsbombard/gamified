@@ -40,13 +40,13 @@ class Quest extends Model
         return $this->getDefaultIcon();
     }
 
-    public function loadQuestProgress($userId,Illuminate\Support\Collection $activeQuests) {
+    public function loadQuestProgress($userId,\Illuminate\Support\Collection $activeQuests) {
 
         $this->activeQuest = $activeQuests
             ->where("user_id", $userId)
             ->where("quest_id", $this->id)
             ->first();
-        
+
         return $this;
 
     }
