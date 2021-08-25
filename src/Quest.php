@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 class Quest extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $activeQuest = null;
 
     public function recordCompletion() {
         $this->increment("completions");
@@ -37,6 +38,17 @@ class Quest extends Model
         }
 
         return $this->getDefaultIcon();
+    }
+
+    public function loadQuestProgress($userId,Illuminate\Support\Collection $activeQuests) {
+
+        $this->activeQuest = $activeQuests
+            ->where("user_id", $userId)
+            ->where("quest_id", $this->id)
+            ->first();
+        
+        return $this;
+
     }
 
     /**

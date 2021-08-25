@@ -122,5 +122,7 @@ class CreateGamifyTables extends Migration
         Schema::dropIfExists('xp');
         Schema::dropIfExists('xpables');
         Schema::dropIfExists('badgables');
+        Schema::dropIfExists('quests');
+        Schema::dropIfExists('user_quests');
     }
 }
