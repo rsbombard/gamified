@@ -8,6 +8,10 @@ use Illuminate\Support\Str;
 class Badge extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $casts   = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];
 
     /**
      * @param $subject

@@ -10,6 +10,12 @@ class UserQuest extends Model
 {
     protected $table   = "user_quests";
     protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $casts   = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'start_date' => 'datetime',
+        'finish_date' => 'datetime',
+    ];
 
     /**
      * This will be called when a QuestEvent is trigerred with the action matching this events "progress_event" attribute.
