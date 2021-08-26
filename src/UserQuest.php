@@ -25,6 +25,7 @@ class UserQuest extends Model
         /* Quest completed! */
         if ($this->progress >= $quest->actions_required
             && $this->num_completions < $quest->max_user_completions
+            && $this->status != 'complete'
         ) {
             $this->status           = "complete";
             $this->finish_date      = \Carbon\Carbon::now()->toDateTimeString();
