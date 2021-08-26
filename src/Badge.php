@@ -57,4 +57,15 @@ class Badge extends Model
             config('gamify.badge_icon_extension', '.svg')
         );
     }
+
+    public function toStatArray()
+    {
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+            'image'       => $this->image,
+            'nice_date'   => $this->updated_at ? $this->updated_at->diffForHumans() : null,
+        ];
+    }
 }

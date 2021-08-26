@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class UserQuest extends Model
 {
-    protected $table = "user_quests";
+    protected $table   = "user_quests";
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
@@ -17,7 +17,8 @@ class UserQuest extends Model
      * @param int $progressIncrement
      * @return bool
      */
-    public function recordProgress(Quest $quest, $progressIncrement = 1) {
+    public function recordProgress(Quest $quest, $progressIncrement = 1)
+    {
         $this->progress += $progressIncrement;
         $this->progress = min($quest->actions_required, $this->progress);
 
@@ -25,8 +26,8 @@ class UserQuest extends Model
         if ($this->progress >= $quest->actions_required
             && $this->num_completions < $quest->max_user_completions
         ) {
-            $this->status = "complete";
-            $this->finish_date = \Carbon\Carbon::now()->toDateTimeString();
+            $this->status           = "complete";
+            $this->finish_date      = \Carbon\Carbon::now()->toDateTimeString();
             $this->percent_progress = 100;
             $this->num_completions++;
             $quest->recordCompletion();
@@ -47,8 +48,19 @@ class UserQuest extends Model
         return $this->belongsTo(\App\User::class, 'user_id');
     }
 
-    public function quest(){
+    public function quest()
+    {
         return $this->belongsTo(Quest::class, "quest_id");
+    }
+
+    public function toStatArray()
+    {
+        return [
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'description' => $this->description,
+            'nice_date'   => $this->finish_date ? $this->finish_date->diffForHumans() : null,
+        ];
     }
 
 }
