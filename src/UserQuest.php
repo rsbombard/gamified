@@ -63,10 +63,10 @@ class UserQuest extends Model
     public function toStatArray()
     {
         return [
-            'id'          => $this->id,
-            'name'        => $this->name,
-            'description' => $this->description,
-            'nice_date'   => $this->finish_date ? $this->finish_date->diffForHumans() : null,
+            'id'          => $this->quest->id,
+            'name'        => $this->quest->name,
+            'description' => $this->quest->description,
+            'nice_date'   => $this->finish_date
         ];
     }
 
