@@ -30,7 +30,10 @@ class GamifyServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/gamify.php', 'gamify');
 
         // Publish factory
-        $this->loadFactoriesFrom(__DIR__ . '/Factories');
+        if (app()->version() > 8.0) {
+            $this->loadFactoriesFrom(__DIR__ . '/Factories');
+        }
+
 
         // publish migration
         if (!class_exists('CreateGamifyTables')) {
