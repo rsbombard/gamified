@@ -46,13 +46,16 @@ class CreateGamifyTables extends Migration
             $table->string('class')->nullable();
             $table->string('reward_type')->nullable();
             $table->string('reward_description')->nullable();
+            $table->string('requirement_type')->nullable(); //unique_offers,user_level,daily_reset, days_in_row
+            $table->string('requirement_conditions', 500)->nullable(); //json representation of conditions {'unique': ['ad-gem','playtime','adscend-media']}
             $table->string('action_url')->nullable();
             $table->string('progress_event')->nullable(); //quest event that triggers progress
-            $table->string('geos', 500)->default("all")->nullable();
+            $table->string('geos', 500)->default("[\"all\"]")->nullable();
             $table->integer("max_user_completions")->default(0);
             $table->integer('actions_required')->default(1)->nullable();
             $table->integer('min_level')->default(0)->nullable();
             $table->integer('reward')->nullable();
+            $table->boolean('premium_only')->default(false);
             $table->timestamp("start_date")->nullable();
             $table->timestamp("end_date")->nullable();
             $table->unsignedBigInteger('completions')->default(0)->nullable();
@@ -73,6 +76,8 @@ class CreateGamifyTables extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('progress')->nullable();
             $table->integer('percent_progress')->nullable();
+            $table->integer('actions_today')->default(0); //how many times has this been updated today? For keeping track of streak based quests
+            $table->integer('actions_yesterday')->default(0); //how many times has this been updated yesterday? For keeping track of streak based quests
             $table->unsignedBigInteger('num_completions')->nullable();
             $table->timestamp("start_date")->nullable();
             $table->timestamp("finish_date")->nullable();
