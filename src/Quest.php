@@ -12,12 +12,21 @@ use Illuminate\Support\Str;
  * @property int completions
  * @property string progress_event
  * @property string max_user_completions
+ * @property string requirement_type
+ * @property array requirement_conditions
  */
 class Quest extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
     protected $currentActiveQuest = null;
     protected $appends = ['active_quest', 'image'];
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'requirement_conditions' => 'array'
+    ];
 
     public function recordCompletion() {
         $this->increment("completions");

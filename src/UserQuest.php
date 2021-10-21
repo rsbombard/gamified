@@ -6,6 +6,11 @@ use Bomb\Gamify\Events\QuestComplete;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+/**
+ * Class UserQuest
+ * @package Bomb\Gamify
+ * @property array progress_identifiers
+ */
 class UserQuest extends Model
 {
     protected $table   = "user_quests";
@@ -15,6 +20,7 @@ class UserQuest extends Model
         'updated_at' => 'datetime',
         'start_date' => 'datetime',
         'finish_date' => 'datetime',
+        'progress_identifiers' => 'array'
     ];
 
     /**

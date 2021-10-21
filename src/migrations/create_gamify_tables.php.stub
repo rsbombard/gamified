@@ -79,6 +79,7 @@ class CreateGamifyTables extends Migration
             $table->integer('actions_today')->default(0); //how many times has this been updated today? For keeping track of streak based quests
             $table->integer('actions_yesterday')->default(0); //how many times has this been updated yesterday? For keeping track of streak based quests
             $table->unsignedBigInteger('num_completions')->nullable();
+            $table->string("progress_identifiers", 500)->nullable(); //json array of recorded progress (offer walls, unique tasks etc.)
             $table->timestamp("start_date")->nullable();
             $table->timestamp("finish_date")->nullable();
             $table->timestamps();
