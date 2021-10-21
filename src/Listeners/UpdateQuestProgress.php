@@ -16,10 +16,18 @@ class UpdateQuestProgress implements ShouldQueue
      */
     public function handle(QuestProgress $event)
     {
+
+        if (env('APP_ENV') == "local") {
+            \Log::info("Quest Progress Event: " . $event->questEventAction);
+        }
         $matchingQuests = Quest::where("progress_event", $event->questEventAction)
             ->where("start_date", "<", \Carbon\Carbon::now()->toDateTimeString())
             ->where("end_date", ">", \Carbon\Carbon::now()->toDateTimeString())
             ->get();
+
+        if (env('APP_ENV') == "local") {
+            \Log::info("Matching Quests Found: " . $matchingQuests->count());
+        }
 
         foreach ($matchingQuests as $quest) {
             $userQuest = UserQuest::firstOrCreate(
