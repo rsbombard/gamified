@@ -31,6 +31,11 @@ class UserQuest extends Model
         'progress_identifiers' => 'array'
     ];
 
+    const STATUS_IN_PROGRESS = "in_progress";
+    const STATUS_COMPLETE = "complete";
+    const STATUS_VERIFICATION = "pending_verification";
+    const STATUS_INVALID = "invalid";
+
     /**
      * This will be called when a QuestEvent is trigerred with the action matching this events "progress_event" attribute.
      * @param Quest $quest
