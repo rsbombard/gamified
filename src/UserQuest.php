@@ -10,6 +10,14 @@ use Illuminate\Support\Str;
  * Class UserQuest
  * @package Bomb\Gamify
  * @property array progress_identifiers
+ * @property integer actions_today
+ * @property integer actions_yesterday
+ * @property integer progress
+ * @property integer percent_progress
+ * @property integer num_completions
+ * @property string status
+ * @property \Carbon\Carbon finish_date
+ * @property \Carbon\Carbon start_date
  */
 class UserQuest extends Model
 {
@@ -33,6 +41,8 @@ class UserQuest extends Model
     {
         $this->progress += $progressIncrement;
         $this->progress = min($quest->actions_required, $this->progress);
+        $this->actions_today += $progressIncrement;
+        $this->actions_today += min($quest->actions_required, $this->actions_today);
 
         /* Quest completed! */
         if ($this->progress >= $quest->actions_required
