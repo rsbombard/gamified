@@ -47,7 +47,7 @@ class UserQuest extends Model
         $this->progress += $progressIncrement;
         $this->progress = min($quest->actions_required, $this->progress);
         $this->actions_today += $progressIncrement;
-        $this->actions_today += min($quest->actions_required, $this->actions_today);
+        $this->actions_today = min($quest->actions_required, $this->actions_today);
 
         /* Quest completed! */
         if ($this->progress >= $quest->actions_required
