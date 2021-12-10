@@ -20,34 +20,22 @@ class QuestProgress implements ShouldBroadcast
     public $user;
 
     /**
-     * @var int
+     * @var QuestProgressDetails
      */
-    public $progressIncrement;
-    public $progressIdentifier; //a specific offer wall, feature or unique identifier to record
-    public $progressValue; //value of the recorded progress event, such as Coin balance, item number etc.
-    public $questEventAction;
+    public $details;
 
 
     /**
      * QuestEvent constructor.
      * @param \App\User $user
-     * @param $questEventAction
-     * @param int $progressIncrement
-     * @param string $progressIdentifier
-     * @param string $progressValue
+     * @param QuestProgressDetails $details
      */
     public function __construct(\App\User $user,
-                                $questEventAction,
-                                $progressIncrement = 1,
-                                $progressIdentifier = "",
-                                $progressValue = ""
+                                QuestProgressDetails $details
     )
     {
-        $this->user = $user;
-        $this->progressIncrement = $progressIncrement;
-        $this->questEventAction = $questEventAction;
-        $this->progressIdentifier = $progressIdentifier;
-        $this->progressValue = $progressValue;
+        $this->user    = $user;
+        $this->details = $details;
     }
 
     /**

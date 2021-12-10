@@ -33,6 +33,7 @@ class UserQuest extends Model
 
     const STATUS_IN_PROGRESS = "in_progress";
     const STATUS_COMPLETE = "complete";
+    const STATUS_SKIPPED = "skipped";
     const STATUS_VERIFICATION = "pending_verification";
     const STATUS_INVALID = "invalid";
 
